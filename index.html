@@ -221,11 +221,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -240,6 +240,351 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/30/git%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaScript简历概括" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        <!-- 这段不要了，这是设置文章标题的样式 -->
+        <!-- 
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/01/javaScript%E7%AE%80%E5%8E%86%E6%A6%82%E6%8B%AC/">javaScript简历概括</a>
+    </h1>
+  
+ -->
+        
+        <a href="/2020/06/01/javaScript%E7%AE%80%E5%8E%86%E6%A6%82%E6%8B%AC/" class="archive-article-date">
+  	<time datetime="2020-06-01T14:59:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      <!-- 追加这一段 -->
+      <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/06/01/javaScript%E7%AE%80%E5%8E%86%E6%A6%82%E6%8B%AC/">javaScript简历概括</a>
+    </h1>
+  
+</p></center>
+
+      
+        <h1 id="javaScript笔记（基础概括）"><a href="#javaScript笔记（基础概括）" class="headerlink" title="javaScript笔记（基础概括）"></a>javaScript笔记（基础概括）</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<li><p>数据类型：String, Number , Boolean , Null , undefind , Symbol , Bigint , Array , Function , Object</p>
+</li>
+<li><p><code>typeof</code>现在能判断出几种数据类型？</p>
+<ul>
+<li>八种：String,Number,Boolean,undefined,function,Object   Symbo(es6)  Bigint( es2020 ). 其中<code>null</code> 和 <code>array</code> 类型被归为Object。</li>
+</ul>
+</li>
+<li><p>如何用原型js判断 Array / function / object</p>
+<ul>
+<li><p>intranceOf,其逻辑就是通过原型链一级的一级的查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log([1,2,3] intranceOf Object )  &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li><p>事件轮询机制</p>
+<ul>
+<li><p>首先得明白js是单线程的，所有的js代码都会在主线程执行。</p>
+<p><img src="https://kityminder-img.gz.bcebos.com/70e05b423049e50423f65ca8840520ca814d9732" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>浏览器中的几个管理异步的模块</p>
+<ul>
+<li>定时器模型：负责定定时器的管理</li>
+<li>网络请求模型：负责服务器的请求（Ajax）</li>
+<li>事件响应模块：负责事件的管理</li>
+</ul>
+</li>
+<li><p>阻塞 &amp; 非阻塞</p>
+<ul>
+<li>因为js是单线程，代码从上而下 只在主线程上执行，同步任务就可能会出来阻塞的情况</li>
+<li>（同步任务）阻塞的代表： alert()   console.log()</li>
+<li>（异步任务）非阻塞的代表： 定时器  Ajax   事件的回调</li>
+</ul>
+</li>
+</ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li><p>我认为的函数</p>
+<ul>
+<li><strong>函数是特殊的对象</strong>，因为 <strong>函数具备行为</strong>，通过调用可以执行内部说句。</li>
+</ul>
+</li>
+<li><p>函数中的<strong>this</strong></p>
+<ul>
+<li><em>this代表调用函数的当前对象</em>  —-<em>一句话概括</em></li>
+<li>所有函数调用，都是调用对象中的。 obj.fun  和 window.fun （只是this指向不同罢了）</li>
+</ul>
+</li>
+<li><p>强制改变this指向</p>
+<ul>
+<li>通过 call / apply。  参数书写不同，apply参数 以数组形式写</li>
+<li>call写法： test.call(‘obj2’,123,’参数二’);</li>
+<li>apply写法： test.apply(‘obj2’,[123,’参数二’]);</li>
+</ul>
+</li>
+<li><p>回调函数  和 IIFE</p>
+<ul>
+<li>什么是回调函数<ul>
+<li>你定义的，没有名字，但是你没有调用，最后它执行的。 </li>
+</ul>
+</li>
+<li>IIFE（匿名函数）<ul>
+<li>通常以 匿名函数自调用，定义只调用 一次的函数。</li>
+</ul>
+</li>
+</ul>
+<hr>
+</li>
+<li><h4 id="原型"><a href="#原型" class="headerlink" title="# 原型"></a># 原型</h4><ul>
+<li><p>一句话概况原型的意义：*将构造函数共有 属性 / 方法，定义到显示原型中，减少代码量 *</p>
+</li>
+<li><blockquote>
+<p>添加原型对象：  Objedt.prototype.fun  //关键字 prototype  </p>
+</blockquote>
+</li>
+<li><p>显式原型（prototype）和 隐式原型（_ <em>proto</em> _）的关系</p>
+<ul>
+<li>每个函数都 prototype属性，每个实例对象都有_ <em>proto</em> _</li>
+<li><strong>实例对象中的_ <em>proto</em> _  ===  其构造函数的prototype</strong></li>
+<li><em>prototype也是一个普通的实例对象，因为它也有_ <em>proto</em> _属性，默认指向Object</em></li>
+</ul>
+</li>
+<li><p><strong>原型链</strong> : </p>
+<ul>
+<li>什么是原型链？？：<em>沿着_ <em>proto</em> _查找的这条链 就是原型链</em></li>
+<li>查找流程</li>
+</ul>
+<ol>
+<li><p>查找对象属性的时候先在自身找,如果自身没有 就沿着_ <em>proto</em> _找，也就是去其构造函数的显示原型对象中找</p>
+</li>
+<li><p>如果显示原型对象上还没有,继续沿着_ <em>proto</em> _,直到找到Object的显示原型对象对象,</p>
+</li>
+<li><p>如果还没有找到 返回 undefined</p>
+<p><img src="http://qb1sym3st.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20200601124409.jpg" alt=""></p>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+</li>
+<li><h4 id="执行上下文"><a href="#执行上下文" class="headerlink" title="# 执行上下文"></a># 执行上下文</h4><ul>
+<li><p><strong>变量提升</strong>（ 提前声明 ）</p>
+<ul>
+<li><p>js引擎在js代码正式执行之前会做一些预解析的工作，将关键字<code>var</code> 和 <code>function</code> 定义的提前解析出来。</p>
+<p><font color='red'>需要注意的几点：</font></p>
+<ol>
+<li>var 定义的变量，不会被赋值。只是提前声明出来</li>
+<li>function定义的函数，会声明 并解析出来。</li>
+<li><code>var fun = function(){}</code> ： 这种情况，只会先声明 变量fun，不会将后面的函数解析出来并赋给 变量fun</li>
+</ol>
+</li>
+<li><p>全局预解析 &amp; 局部预解析</p>
+<p>   全局预解析：就是解析 全局（window）中定义的 函数</p>
+<p>   局部预解析：就是解析 函数内部（function）中定义的 函数</p>
+<p><font color='red'>需要注意的几点：</font></p>
+<pre><code>1. 全局预解析，只是要 function定义的就解析
+
+ 2. &lt;font color=&apos;red&apos;&gt;^&lt;/font&gt;局部预解析，如果内部函数没有被使用到，就不会被解析。--- &lt;font color=&apos;#006666&apos;&gt;*解析闭包时，要注意这一点*&lt;/font&gt;</code></pre></li>
+</ul>
+</li>
+<li><p><strong>执行上下文</strong></p>
+<ul>
+<li><p>执行上下文：代表了代码执行的环境，其中包含了， <strong>执行环境、变量对象、this、作用域链</strong></p>
+<p><font color='red'>（必须理解 的概念，最基础）</font></p>
+<p>​    ** 执行上下文是动态创建 的</p>
+<p>​    ** 尤其是针对函数每调用一次函数就会创建一次执行上下文</p>
+<p>​    <strong>***</strong> 函数进栈，只有当函数内容执行完函数才会出栈。</p>
+<p>​    ** 函数执行完语句后，最后 一句return，如果不设置return，那么return默认是 undefined</p>
+<p><img src="http://qb1sym3st.bkt.clouddn.com/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p><strong>执行上下文栈</strong>（ Call Stack ）</p>
+<ul>
+<li><p>主要是执行上下文进栈与出栈的一个流程，一定要弄明白。</p>
+<p><font color='red'>（流程）</font></p>
+<ol>
+<li>在全局代码执行前，js引擎就会创建一个栈来存储管理所有的执行上下文</li>
+<li>在全局执行上下文（window）确定后，将其添加到栈中（压栈）</li>
+<li>在函数执行上下文创建后，将其添加到栈中（压栈）</li>
+<li>在当前函数执行完后，将栈顶的对象移除（出栈）</li>
+<li>当所有的代码执行完后，栈中只剩下window</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+</li>
+<li><h4 id="作用域-（Scopes）"><a href="#作用域-（Scopes）" class="headerlink" title="#作用域 （Scopes）"></a>#作用域 （Scopes）</h4><ul>
+<li><p><strong>作用域</strong>：</p>
+<ul>
+<li><p>作用域概念：</p>
+<ol>
+<li><p>它是一块 “地盘”，一个代码段所在的 <em>区域</em></p>
+</li>
+<li><p>它是<em>静态</em>的 （相对于上下文对象），它在编写代码就已经确定了，不会在调用的时候发生改变</p>
+</li>
+</ol>
+</li>
+<li><p>作用域的分类：全局作用域、 函数作用域 、 块级作用域（es6）</p>
+</li>
+<li><p>作用域的作用：</p>
+<ol>
+<li>隔离变量，不同作用域下同名变量不会有冲突</li>
+<li>规定当前函数之后创建作用域链的链条是什么样的</li>
+</ol>
+</li>
+<li><p>作用域 与 执行上下的联系</p>
+<p><strong>#### 区别1</strong></p>
+<ul>
+<li><p>全局作用域之外，每个函数都会创建自己的作用域，作用域在函数定义时就已经确定了。而不是在函数调用时确定。</p>
+<p>- 全局执行上下文环境是在全局作用域确定之后，js代码马上执行之前创建</p>
+<p>- 函数执行上下文环境是在调用函数时，函数体代码执行之前创建</p>
+</li>
+</ul>
+<p><strong>#### 区别2</strong></p>
+<p>  - 作用域是静态的，只要函数定义好了就一直存在，且不会变化</p>
+<p>  - 上下文是动态的，调用函数时创建，函数调用结束时上下文环境就会被释放</p>
+<p><strong>#### 联系</strong></p>
+<p>  - 上下文环境（对象）是从属性所在的作用域</p>
+<p>  - 全局上下文环境===&gt;全局作用域</p>
+<p>  - 函数上下文环境===&gt;对应函数的作用域</p>
+</li>
+</ul>
+</li>
+<li><p><strong>作用域链</strong></p>
+<ul>
+<li><p>理解</p>
+<ol>
+<li><p>多个上下级关系的作用域形成的链式关系，它的方向是从下向上的（从内到外）</p>
+</li>
+<li><p>作用链是一个数组结构的数据，保存着当前作用域的变量对象及其上级作用域的变量对象，直到全局的变量对象</p>
+</li>
+<li><p>查找变量时就是沿着作用域链来查找的</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- 作用域链是如何产生的**
+
+    \* 函数在定义的时候自动添加一个属性‘[[Scopes]]’,该属性保存的是其上级作用域
+
+    \* 当函数执行的时候，进入执行上下文环境，将创建的变量对象添加到‘[[Scopes]]’数据的第一个位置，形成新的[[Scopes]]--（查看方式，浏览器F12 - Sources 下的 Scope）
+
+
+
+- 查找一个变量的查找规则
+
+    ** 先在当前作用域的变量对象中查找，如果有就用
+
+    ** 如果没有就会沿着作用域链的数组去上级作用域中的变量对象中查找
+
+    ** 找到就返回对应的值，如果没有继续向上找，直到找到最后一个变量对象（全局的变量对象）,如果还没有就会报错</code></pre><hr>
+<ul>
+<li><h4 id="闭包-（-Closure-）"><a href="#闭包-（-Closure-）" class="headerlink" title="# 闭包 （ Closure ）"></a># 闭包 （ Closure ）</h4><ul>
+<li>一句简单概况：闭包其实就是个引用关系，解决了es5中没有块级作用域的问题。内部函数引用外部函数的变量对象。</li>
+<li>闭包可以实现什么功能 （简略写一下，后期专门写一篇关于闭包的文章）<ul>
+<li>延长了外部函数变量对象的生命周期。典型例子：for 循环 + 单击案例<img src="https://kityminder-img.gz.bcebos.com/d109dbbe3da9f1eafe94bd97677b6cee9e9bf44a" alt=""></li>
+<li>闭包还可以间接的从函数外部，通过内部函数访问到外部函数的变量对象（有点绕）。典型例子：在外部函数中  return 内部函数<img src="https://kityminder-img.gz.bcebos.com/d109dbbe3da9f1eafe94bd97677b6cee9e9bf44a" alt=""></li>
+</ul>
+</li>
+<li>注意事项：<ul>
+<li>内部函数引用外部函数，然后外部函数一定要 <strong>调用内部函数</strong>，不然，js局部预解析的时候直接略过。</li>
+<li>使用完闭包后 及时清理掉。就是将指针，指向 null。</li>
+<li>闭包能不用就不用。</li>
+<li>在chrome中 在 ‘ [[Scopes]] ’ 就可能 看到 Closure，调试起来很方便</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="对象（Object）–"><a href="#对象（Object）–" class="headerlink" title="对象（Object）–"></a>对象（Object）–</h2><ul>
+<li>对象难点 在于对象的继承上。 但是只要理解了原型链 以及 this指向，一般是没什么问题<ul>
+<li>对象的继承分为： 原型继承、构造函数继承、原型+构造函数继承。</li>
+<li>在写es6，class继承。统一总结一下。</li>
+</ul>
+</li>
+</ul>
+<p>这一篇算是大致的概括一下js的理论上的基础。细节会在后期持续更新，如有不足直接call我，欢迎交流。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/01/javaScript%E7%AE%80%E5%8E%86%E6%A6%82%E6%8B%AC/">展开全文 >></a>
         </p>
       
 
@@ -560,15 +905,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,6 +922,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
