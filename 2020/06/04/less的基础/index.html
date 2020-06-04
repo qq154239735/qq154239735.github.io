@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Diao_blog</title>
+  <title>less的基础 | Diao_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Diao_blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="概览 Less （Leaner Style Sheets 的缩写） 是一门向后兼容的 CSS 扩展语言。这里呈现的是 Less 的官方文档（中文版），包含了 Less 语言以及利用 JavaScript 开发的用于将 Less 样式转换成 CSS 样式的 Less.js 工具。  因为 Less 和 CSS 非常像，因此很容易学习。而且 Less 仅对 CSS 语言增加了少许方便的扩展，这就是 L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="less的基础">
+<meta property="og:url" content="http://yoursite.com/2020/06/04/less%E7%9A%84%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Diao_blog">
+<meta property="og:description" content="概览 Less （Leaner Style Sheets 的缩写） 是一门向后兼容的 CSS 扩展语言。这里呈现的是 Less 的官方文档（中文版），包含了 Less 语言以及利用 JavaScript 开发的用于将 Less 样式转换成 CSS 样式的 Less.js 工具。  因为 Less 和 CSS 非常像，因此很容易学习。而且 Less 仅对 CSS 语言增加了少许方便的扩展，这就是 L">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-04T15:13:01.000Z">
+<meta property="article:modified_time" content="2020-06-04T15:20:54.659Z">
 <meta property="article:author" content="Mr_Diao">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="less">
+<meta property="article:tag" content="扩展">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Diao_blog" type="application/atom+xml">
@@ -163,35 +170,179 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<!-- 可以实现文章置顶 -->
+
+
+
+<article id="post-less的基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/04/less%E7%9A%84%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-06-04T15:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        <!-- 这段不要了，这是设置文章标题的样式 -->
+        <!-- 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/04/less%E7%9A%84%E5%9F%BA%E7%A1%80/">less的基础</a>
+    <h1 class="article-title" itemprop="name">
+      less的基础
     </h1>
   
+ -->
+        
+        <a href="/2020/06/04/less%E7%9A%84%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-06-04T15:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
 
-        <div class="article-info info-on-right">
-          
+      <!-- 追加这一段 -->
+      <center><p>
+  
+    <h1 class="article-title_code_ant" itemprop="name">
+      less的基础
+    </h1>
+  
+</p></center>
+
+      
+        <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><blockquote>
+<p>Less （Leaner Style Sheets 的缩写） 是一门向后兼容的 CSS 扩展语言。这里呈现的是 Less 的官方文档（中文版），包含了 Less 语言以及利用 JavaScript 开发的用于将 Less 样式转换成 CSS 样式的 Less.js 工具。</p>
+</blockquote>
+<p>因为 Less 和 CSS 非常像，因此很容易学习。而且 Less 仅对 CSS 语言增加了少许方便的扩展，这就是 Less 如此易学的原因之一。</p>
+<p>在 Node.js 环境中使用 Less ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g less     &#x2F;&#x2F;全局安装</span><br><span class="line">npm install less        &#x2F;&#x2F;本地安装</span><br><span class="line"></span><br><span class="line">lessc styles.less styles.css   &#x2F;&#x2F;将 styles.less 编译为 style.css</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>在浏览器环境中使用 Less ： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&#x2F;less&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;styles.less&quot; &#x2F;&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;less.js&#x2F;3.10.0-beta&#x2F;less.min.js&quot; &gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Less 到底为 CSS 添加了什么功能？以下就是这些新加功能的概览。</p>
+<h3 id="二、LESS基本用法"><a href="#二、LESS基本用法" class="headerlink" title="二、LESS基本用法"></a>二、LESS基本用法</h3><h4 id="2-1变量的设置与使用"><a href="#2-1变量的设置与使用" class="headerlink" title="2.1变量的设置与使用"></a>2.1变量的设置与使用</h4><p>设置变量，封装样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@main-color: #5B83AD;</span><br></pre></td></tr></table></figure>
+
+
+<p>使用变量：</p>
+<p>使用变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background: @bg-color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>渲染结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  background: #FFFFFF;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2混合使用"><a href="#2-2混合使用" class="headerlink" title="2.2混合使用"></a>2.2混合使用</h4><p>设置混合使用的.class样式，封装样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.padding&#123;</span><br><span class="line">    padding: 0.5rem 0.625rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>调用所需的.class样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.nav-wrapper&#123;</span><br><span class="line">    .padding;&#x2F;&#x2F;使用less混合功能，仅需在所需要的.class类(.nav-wrapper)中声明.+class类名(.padding)即可直接引入该样式</span><br><span class="line">    background-color: #EFF3F7;</span><br><span class="line">    font-size: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>渲染结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.nav-wrapper &#123;</span><br><span class="line">  padding: 0.5rem 0.625rem;</span><br><span class="line">  background-color: #EFF3F7;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-3混合使用延伸1（带参使用）"><a href="#2-3混合使用延伸1（带参使用）" class="headerlink" title="2.3混合使用延伸1（带参使用）"></a>2.3混合使用延伸1（带参使用）</h4><p>设置所需的混合参数以及变量，封装样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.padding&#123;</span><br><span class="line">    padding: 0.5rem 0.625rem;</span><br><span class="line">&#125;</span><br><span class="line">.nav-wrapper(@bgcolor) &#123;</span><br><span class="line">  .padding;</span><br><span class="line">  background-color: @bgcolor;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>混合模式带参使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.nav&#123;</span><br><span class="line">    .nav-wrapper(#EFF3F7);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>渲染结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.nav &#123;</span><br><span class="line">  padding: 0.5rem 0.625rem;</span><br><span class="line">  background-color: #EFF3F7;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-3混合使用延伸2（带默认参数使用）"><a href="#2-3混合使用延伸2（带默认参数使用）" class="headerlink" title="2.3混合使用延伸2（带默认参数使用）"></a>2.3混合使用延伸2（带默认参数使用）</h4><p>设置所需的混合参数以及变量，封装样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.padding&#123;</span><br><span class="line">    padding: 0.5rem 0.625rem;</span><br><span class="line">&#125;</span><br><span class="line">.nav-wrapper(@bgcolor:#EEEEEE) &#123;</span><br><span class="line">  .padding;</span><br><span class="line">  background-color: @bgcolor;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>混合模式带参使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.nav&#123;</span><br><span class="line">    .nav-wrapper();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>渲染结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.nav &#123;</span><br><span class="line">  padding: 0.5rem 0.625rem;</span><br><span class="line">  background-color: #EEEEEE;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-匹配模式"><a href="#2-4-匹配模式" class="headerlink" title="2.4@_ 匹配模式"></a>2.4@_ 匹配模式</h4><p>栗子：绘制三角形<br>配置基础样式，封装样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">.triangle(top, @width: 5px, @color: #ccc) &#123;</span><br><span class="line">    border-width: @width;</span><br><span class="line">    border-color: @color transparent transparent transparent;</span><br><span class="line">    border-style: solid dashed dashed dashed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.triangle(right, @width: 5px, @color: #ccc) &#123;</span><br><span class="line">    border-width: @width;</span><br><span class="line">    border-color: transparent @color transparent transparent;</span><br><span class="line">    border-style: dashed solid dashed dashed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.triangle(bottom, @width: 5px, @color: #ccc) &#123;</span><br><span class="line">    border-width: @width;</span><br><span class="line">    border-color: transparent transparent @color transparent;</span><br><span class="line">    border-style: dashed dashed solid dashed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.triangle(left, @width: 5px, @color: #ccc) &#123;</span><br><span class="line">    border-width: @width;</span><br><span class="line">    border-color: transparent transparent transparent @color;</span><br><span class="line">    border-style: dashed dashed dashed solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.triangle(@_, @width: 5px, @color: #ccc) &#123;</span><br><span class="line">    &#x2F;&#x2F; @_ 是固定格式，表示不管你匹配到谁，都会带上这些内容</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>调用集成样式，如制作顶部倒三角</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.triangle-top &#123;</span><br><span class="line">    .triangle(top, 30px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>渲染效果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.triangle-top &#123;</span><br><span class="line">  border-width: 30px;</span><br><span class="line">  border-color: #ccc transparent transparent transparent;</span><br><span class="line">  border-style: solid dashed dashed dashed;</span><br><span class="line">  width: 0;</span><br><span class="line">  height: 0;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-5运算"><a href="#2-5运算" class="headerlink" title="2.5运算"></a>2.5运算</h4><p>包含加减乘的运算，需要用括号拼接，操作的对象主要是数字、颜色、变量等。(颜色一般情况下很少用运算)<br>配置基础样式，封装样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@width：3rem;</span><br></pre></td></tr></table></figure>
+
+
+<p>调用样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.wrapper&#123;</span><br><span class="line">    width：(@width-0.5)*1;&#x2F;&#x2F;单位只要有一个带即可</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-6嵌套规则"><a href="#2-6嵌套规则" class="headerlink" title="2.6嵌套规则"></a>2.6嵌套规则</h4><p>嵌套关系主要是父子级的关系层，但是不建议大家使用，该方式不便代码的维护管理，尽可能使用.class来规划业务层级问题。<br>LESS嵌套参考案例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.list &#123;</span><br><span class="line">    width: 10rem;</span><br><span class="line">    margin: 3rem auto;</span><br><span class="line">    padding: 0;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">    li &#123;</span><br><span class="line">        height: 1.5rem;</span><br><span class="line">        line-height: 1.5rem;</span><br><span class="line">        margin-bottom: 0.375rem;</span><br><span class="line">        padding: 0 0.375rem;</span><br><span class="line">    &#125;</span><br><span class="line">    p &#123;</span><br><span class="line">        float: left;</span><br><span class="line">        color: #333;</span><br><span class="line">        &amp;:hover &#123;</span><br><span class="line">            &#x2F;&#x2F;&amp;代表上一层选择器</span><br><span class="line">            color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    span &#123;</span><br><span class="line">        float: right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>渲染结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">.list &#123;</span><br><span class="line">  width: 10rem;</span><br><span class="line">  margin: 3rem auto;</span><br><span class="line">  padding: 0;</span><br><span class="line">  font-size: 16px;</span><br><span class="line">&#125;</span><br><span class="line">.list li &#123;</span><br><span class="line">  height: 1.5rem;</span><br><span class="line">  line-height: 1.5rem;</span><br><span class="line">  margin-bottom: 0.375rem;</span><br><span class="line">  padding: 0 0.375rem;</span><br><span class="line">&#125;</span><br><span class="line">.list p &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  color: #333;</span><br><span class="line">&#125;</span><br><span class="line">.list p:hover &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">.list span &#123;</span><br><span class="line">  float: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-7懒人必备arguments变量"><a href="#2-7懒人必备arguments变量" class="headerlink" title="2.7懒人必备arguments变量"></a>2.7懒人必备arguments变量</h4><p>使用arguments的好处的就可以帮你自动填充所有变量。<br>封装样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.border_arg(@width: 1.75rem, @color: #e6e6e6, @style: solid) &#123;</span><br><span class="line">    border: @arguments</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>调用样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.border_arguments &#123;</span><br><span class="line">    .border_arg(0.375rem); &#x2F;&#x2F;传参的思想</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>渲染结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.border_arguments &#123;</span><br><span class="line">  border: 0.375rem #e6e6e6 solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="三、less小技巧"><a href="#三、less小技巧" class="headerlink" title="三、less小技巧"></a>三、less小技巧</h3><h4 id="3-1注释问题"><a href="#3-1注释问题" class="headerlink" title="3.1注释问题"></a>3.1注释问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*编译后会被保留*&#x2F;</span><br><span class="line">&#x2F;&#x2F;编译后不会被保留</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-2适用-important"><a href="#3-2适用-important" class="headerlink" title="3.2适用 !important"></a>3.2适用 !important</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.nav&#123;</span><br><span class="line">    .nav-wrapper(#EFF3F7)!important;&#x2F;&#x2F;nav-wrapper所有的样式都带上!important</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-3避免编译符号"><a href="#3-3避免编译符号" class="headerlink" title="3.3避免编译符号 ~"></a>3.3避免编译符号 ~</h4><p>在字符串前加上一个~即可使用一些less不认识的专有语法或者一些不正确的css语法。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,283 +362,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/04/less%E7%9A%84%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/03/div%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" class="archive-article-date">
-  	<time datetime="2020-06-03T15:50:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/03/div%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">div水平垂直居中</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/03/div%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/">div水平垂直居中</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概览"><span class="toc-number">1.</span> <span class="toc-text">概览</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二、LESS基本用法"><span class="toc-number">1.0.1.</span> <span class="toc-text">二、LESS基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1变量的设置与使用"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">2.1变量的设置与使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2混合使用"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">2.2混合使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3混合使用延伸1（带参使用）"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">2.3混合使用延伸1（带参使用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3混合使用延伸2（带默认参数使用）"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">2.3混合使用延伸2（带默认参数使用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-匹配模式"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">2.4@_ 匹配模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5运算"><span class="toc-number">1.0.1.6.</span> <span class="toc-text">2.5运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6嵌套规则"><span class="toc-number">1.0.1.7.</span> <span class="toc-text">2.6嵌套规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7懒人必备arguments变量"><span class="toc-number">1.0.1.8.</span> <span class="toc-text">2.7懒人必备arguments变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、less小技巧"><span class="toc-number">1.0.2.</span> <span class="toc-text">三、less小技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1注释问题"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">3.1注释问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2适用-important"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">3.2适用 !important</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3避免编译符号"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">3.3避免编译符号 ~</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/03/%E7%BB%A7%E6%89%BF/" class="archive-article-date">
-  	<time datetime="2020-06-02T16:03:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/03/%E7%BB%A7%E6%89%BF/">JavaScript继承的逻辑</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">逻辑</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/javaScript%E7%AE%80%E5%8E%86%E6%A6%82%E6%8B%AC/" class="archive-article-date">
-  	<time datetime="2020-06-01T14:59:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/javaScript%E7%AE%80%E5%8E%86%E6%A6%82%E6%8B%AC/">JavaScript简略概括</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/30/git%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-05-30T15:49:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/30/git%E5%9F%BA%E7%A1%80/">git基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/29/npm/" class="archive-article-date">
-  	<time datetime="2020-05-29T04:26:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/29/npm/">node中的npm包管理工具</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-05-28T03:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">MrakDown测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -516,8 +503,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
