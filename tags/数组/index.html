@@ -6,25 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaScript继承的逻辑 | Diao_blog</title>
+  <title>Tag: 数组 | Diao_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对象继承 与 class继承​        在es6中将构造函数设计成为了class的一部分，我感觉又像是构造函数的别一种写法。总之class对于构造函数之间的继承等方面进行了优化，代码写起来很流畅，也比较容易理解，好使就完事了。以下内容是几种继承方式的笔记汇总。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript继承的逻辑">
-<meta property="og:url" content="http://yoursite.com/2020/06/03/%E7%BB%A7%E6%89%BF/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Diao_blog">
+<meta property="og:url" content="http://yoursite.com/tags/%E6%95%B0%E7%BB%84/index.html">
 <meta property="og:site_name" content="Diao_blog">
-<meta property="og:description" content="对象继承 与 class继承​        在es6中将构造函数设计成为了class的一部分，我感觉又像是构造函数的别一种写法。总之class对于构造函数之间的继承等方面进行了优化，代码写起来很流畅，也比较容易理解，好使就完事了。以下内容是几种继承方式的笔记汇总。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://qb1sym3st.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png">
-<meta property="og:image" content="http://qb1sym3st.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF.png">
-<meta property="article:published_time" content="2020-06-02T16:03:13.000Z">
-<meta property="article:modified_time" content="2020-06-02T16:17:11.536Z">
 <meta property="article:author" content="Mr_Diao">
-<meta property="article:tag" content="基础">
-<meta property="article:tag" content="js">
-<meta property="article:tag" content="逻辑">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qb1sym3st.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png">
   
     <link rel="alternative" href="/atom.xml" title="Diao_blog" type="application/atom+xml">
   
@@ -173,247 +163,63 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<!-- 可以实现文章置顶 -->
-
-
-
-<article id="post-继承" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+  
     
-      <header class="article-header">
-        <!-- 这段不要了，这是设置文章标题的样式 -->
-        <!-- 
-  
-    <h1 class="article-title" itemprop="name">
-      JavaScript继承的逻辑
-    </h1>
-  
- -->
-        
-        <a href="/2020/06/03/%E7%BB%A7%E6%89%BF/" class="archive-article-date">
-  	<time datetime="2020-06-02T16:03:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
-        
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-
-      <!-- 追加这一段 -->
-      <center><p>
-  
-    <h1 class="article-title_code_ant" itemprop="name">
-      JavaScript继承的逻辑
-    </h1>
-  
-</p></center>
-
       
-        <h1 id="对象继承-与-class继承"><a href="#对象继承-与-class继承" class="headerlink" title="对象继承 与 class继承"></a>对象继承 与 class继承</h1><p>​        在es6中将构造函数设计成为了class的一部分，我感觉又像是构造函数的别一种写法。总之class对于构造函数之间的继承等方面进行了优化，代码写起来很流畅，也比较容易理解，好使就完事了。以下内容是几种继承方式的笔记汇总。</p>
-<a id="more"></a>
-<h2 id="对象继承"><a href="#对象继承" class="headerlink" title="对象继承"></a>对象继承</h2><p> 1.<strong>原型链继承</strong></p>
-<ul>
-<li><p>​    一句话概括：<font color=red>将子构造函数中的prototype —指向—&gt; 父构造函数的实例</font></p>
-</li>
-<li><p>​    主要逻辑就是，在原型链中多加一个原型对象（父原型对象）。就像你去超市买口罩，可是超市已经没有了，超市老板给你说可以去药店看看。然后你到了药店果然还有口罩，如果药店也没有口罩就只能undefined了。其中 你 == 子构造函数实例对象。 超市 == 子构造函数本身。 超市老板 == 子构造函数显示原型对象，  药店 == 父构造函数的原型对象  。  这条链 全都通过 隐式原型_ <em>proto</em> _ 一级一级查找。</p>
-<p><img src="http://qb1sym3st.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png" alt="http://qb1sym3st.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png"></p>
-</li>
-<li><p>原型继承用代码实现。首先定义了父类型 以及父类型的原型方法showSupperProp()，然后定义子类型，<strong>并把子类型的显示原型 指向了 父类的实例对象（隐式原型）</strong>，又定义了子类原型对象方法。这时候从右边图中可以看到，子类的显示原型中有了showSubProp()原型方法，并且_ <em>proto</em> _指向的是 父类原型对象的地址。这样实例对象sub就可以通过原型链查找到父类的原型方法。<em>ps：原型继承的时候，记得把 函数的构造器指向 函数本身</em><img src="http://qb1sym3st.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF.png" alt="http://qb1sym3st.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF.png"></p>
-</li>
-</ul>
-<p>2.<strong>借用构造函数继承</strong></p>
-<ul>
-<li><p>​    一句话概括：<font color=red>在子构造函数中直接调用父构造函数，并将this指向子构造函数</font></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.name = name;</span><br><span class="line">      <span class="keyword">this</span>.age =age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'limi'</span>,<span class="number">45</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如何借用Person中的代码</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name,age,sex</span>)</span>&#123;</span><br><span class="line">      <span class="comment">// this.name = name;</span></span><br><span class="line">      <span class="comment">// this.age =age;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="comment">//难点： 如果直接调用Person()函数this --&gt; window.  但是怎么样让 this--》Child 上</span></span><br><span class="line">      <span class="comment">// Person(name,age); </span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">// 改变this指向，call。</span></span><br><span class="line">      <span class="comment">// 重点：这里为什么 指向this。这里this能代表什么。</span></span><br><span class="line">      <span class="comment">//       这里this 和 this.sex = sex 中的this一样，通过new 指向了Child构造函数</span></span><br><span class="line">      Person.call(<span class="keyword">this</span>,name,age)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">this</span>.sex = sex</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> c1 = <span class="keyword">new</span> Child(<span class="string">'mini'</span>,<span class="number">10</span>,<span class="string">'boy'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(c1)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="class继承"><a href="#class继承" class="headerlink" title="class继承"></a>class继承</h2><p>1.<strong>首先得了解class。</strong></p>
-<ul>
-<li>类的contructor（构造器）：new 类的时候会调用构造方法 生成实例，相当于构造函数</li>
-<li>类的一般方法/属性：相当于构造函数的 prototype原型上的方法/属性</li>
-<li>类的静态方法：static修饰词 ，类自身的属性方法</li>
-</ul>
-<p>2.<strong>继承</strong></p>
-<ul>
-<li><p>逻辑：其实和对象继承一样，也是为子类追加一个原型对象，也是调用父类。只是写法更简单</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- </span><br><span class="line">    简单概述一下：</span><br><span class="line">       定义子类的时候 直接 extends父类 </span><br><span class="line">       继承父类构造函数一定要在 子类的构造器中定义， <span class="keyword">super</span>( 父类的参数<span class="number">1</span>，父类的参数<span class="number">1</span> )</span><br><span class="line">       调用<span class="keyword">super</span>（） 可以想象成，调用 父类中的构造函数**</span><br><span class="line"></span><br><span class="line">       然后类中的 一般方法，也会一同被继承到 子类中。</span><br><span class="line">       因为 一般方法是属于构造函数的prototyep</span><br><span class="line"></span><br><span class="line">       在子类中可以直接使用一般方法， 也可以重写 继承过来的 一般方法</span><br><span class="line"></span><br><span class="line"> --&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">            <span class="keyword">constructor</span>(name,age) &#123;</span><br><span class="line">                <span class="keyword">this</span>.name = name;</span><br><span class="line">                <span class="keyword">this</span>.age = age;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">static</span> fu = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'这是类自己的方法，静态方法'</span>)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 一般方法</span></span><br><span class="line">            showPersonFun ()&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.name +<span class="string">' 今年 '</span>+ <span class="keyword">this</span>.age + <span class="string">' 岁'</span>+<span class="string">'这个方法存在于构造器的prototype中'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 继承父类中 的属性 和 一般方法  extends</span></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">            <span class="keyword">constructor</span>(nam,age,sex) &#123;</span><br><span class="line">                <span class="comment">// super方法一定要写 需要继承的参数</span></span><br><span class="line">                <span class="keyword">super</span>(nam,age);</span><br><span class="line">                <span class="keyword">this</span>.sex = sex</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果继承过来的方法，不合适，还可以重写。（其实就是重新定义）</span></span><br><span class="line">            showPersonFun()&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.name +<span class="string">' 今年 '</span>+ <span class="keyword">this</span>.age + <span class="string">' 岁'</span>+<span class="keyword">this</span>.sex)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 实例Child 调用继承过来的方法</span></span><br><span class="line">        <span class="keyword">var</span> c1 = <span class="keyword">new</span> Child(<span class="string">'Xiaoming'</span>,<span class="number">12</span>,<span class="string">'男'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(c1)				<span class="comment">// child 的 __proto__ 指向的是 Person类</span></span><br><span class="line">        c1.showPersonFun()			<span class="comment">// xiaoming 今年 12 岁男</span></span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/06/05/%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95-%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-06-05T15:13:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/06/05/%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95-%E5%9F%BA%E7%A1%80/">数组方法</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">逻辑</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/03/%E7%BB%A7%E6%89%BF/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/06/03/div%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          div水平垂直居中
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/06/01/javaScript%E7%AE%80%E5%8E%86%E6%A6%82%E6%8B%AC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript简略概括</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#对象继承-与-class继承"><span class="toc-number">1.</span> <span class="toc-text">对象继承 与 class继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对象继承"><span class="toc-number">1.1.</span> <span class="toc-text">对象继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#class继承"><span class="toc-number">1.2.</span> <span class="toc-text">class继承</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -442,9 +248,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
