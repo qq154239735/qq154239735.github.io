@@ -6,21 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>node中的npm包管理工具 | Diao_blog</title>
+  <title>Tag: 第一周 | Diao_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="npm的基本操作1.什么是包? 我们电脑上的文件夹，包含了某些特定的文件">
-<meta property="og:type" content="article">
-<meta property="og:title" content="node中的npm包管理工具">
-<meta property="og:url" content="http://yoursite.com/2020/05/29/npm/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Diao_blog">
+<meta property="og:url" content="http://yoursite.com/tags/%E7%AC%AC%E4%B8%80%E5%91%A8/index.html">
 <meta property="og:site_name" content="Diao_blog">
-<meta property="og:description" content="npm的基本操作1.什么是包? 我们电脑上的文件夹，包含了某些特定的文件">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-29T04:26:35.000Z">
-<meta property="article:modified_time" content="2020-05-29T04:36:30.154Z">
 <meta property="article:author" content="Mr_Diao">
-<meta property="article:tag" content="基础">
-<meta property="article:tag" content="随笔">
-<meta property="article:tag" content="npm">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Diao_blog" type="application/atom+xml">
@@ -170,267 +163,67 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<!-- 可以实现文章置顶 -->
-
-
-
-<article id="post-npm" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+  
     
-      <header class="article-header">
-        <!-- 这段不要了，这是设置文章标题的样式 -->
-        <!-- 
-  
-    <h1 class="article-title" itemprop="name">
-      node中的npm包管理工具
-    </h1>
-  
- -->
-        
-        <a href="/2020/05/29/npm/" class="archive-article-date">
-  	<time datetime="2020-05-29T04:26:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-
-      <!-- 追加这一段 -->
-      <center><p>
-  
-    <h1 class="article-title_code_ant" itemprop="name">
-      node中的npm包管理工具
-    </h1>
-  
-</p></center>
-
       
-        <h1 id="npm的基本操作"><a href="#npm的基本操作" class="headerlink" title="npm的基本操作"></a>npm的基本操作</h1><h3 id="1-什么是包"><a href="#1-什么是包" class="headerlink" title="1.什么是包?"></a>1.什么是包?</h3><ul>
-<li>我们电脑上的文件夹，包含了某些特定的文件<a id="more"></a> ，符合了基本特定的结构，就是一个包</li>
-</ul>
-<h3 id="2-一个标准的包，应该包含哪些内容？"><a href="#2-一个标准的包，应该包含哪些内容？" class="headerlink" title="2.一个标准的包，应该包含哪些内容？"></a>2.一个标准的包，应该包含哪些内容？</h3><ul>
-<li><p>package.json ——— 描述文件(包的“说明书”，必须要有)</p>
-</li>
-<li><p>bin —————— 可执行二进制文件</p>
-</li>
-<li><p>lib —————— 经过编译后的js代码</p>
-</li>
-<li><p>doc —————— 文档（说明文档、bug修改文档、版本变量记录方档）</p>
-</li>
-<li><p>test —————– 一些测试报告</p>
-<h3 id="3-如何让一个普通文件夹变成一个包？"><a href="#3-如何让一个普通文件夹变成一个包？" class="headerlink" title="3.如何让一个普通文件夹变成一个包？"></a>3.如何让一个普通文件夹变成一个包？</h3></li>
-<li><p>让这个文件夹拥有一个：package.json文件即可（自己建也可以，但是里面一定写入 <code>&quot;name&quot;：包名</code> 和 <code>&quot;version&quot;:版本号</code>）</p>
-<blockquote>
-<p>执行命令: npm init 或 npm init -y</p>
-</blockquote>
-</li>
-<li><p>包名的要求：不要有中文、不能有大写字母、不能与npm仓库上其他包同名</p>
-<h3 id="4-npm的常用命令"><a href="#4-npm的常用命令" class="headerlink" title="4.npm的常用命令"></a>4.npm的常用命令</h3><ul>
-<li>【搜索】： npm search XXX  —(丑，不用。直接去npm官网找就行)</li>
-<li>【安装（必须掌握）】：(安装前必须保证文件夹中有package.json,且里面的内容格式合法)<ul>
-<li>1*. <code>npm install xxx --save</code>   或 <code>npm i xxx -S</code>  或 <code>npm i xxx</code>  <ul>
-<li>将包版本写入到package.json的【<strong>dependencies(生产依赖)</strong>】中</li>
-<li>会自动产生一个package-lock.json（npm5.x 之后才有），里面缓存的是每个下载边的包的地址，目的是为了下次下载速度更快一些</li>
-<li>安装完的第三方包，放在node_modules里</li>
-</ul>
-</li>
-<li>2<em>. <code>npm install xxxx --save-dev</code> 或 <code>npm install i xxxx -D</code>将安装包写入到【*</em>dveDependencies(开发依赖中)**】</li>
-<li>#开发依赖  &amp;&amp; 生产依赖<ul>
-<li>开发依赖：开发的时候使用到的包(语法检查包、编译包、打包代码包、jquery、、)</li>
-<li>生成依赖：部署到服务器上时使用到的包（jquery）</li>
-</ul>
-</li>
-<li>3*. <code>npm i xxx -g</code>: 全局安装， 查看全局安装的位置：<code>npm root -g</code></li>
-<li>4*. <code>npm i xxx@y.y.y</code>: 安装xxx包的y.y.y版本</li>
-<li>5*. <code>npm i</code>:安装package.json中所声明的包</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>【移除】</p>
-<ul>
-<li><code>npm remove xxxx</code> :移除xxx包</li>
-<li><code>npm uninstall xxx</code>:删除xxx包*</li>
-</ul>
-</li>
-<li><p>【其他命令】</p>
-<ul>
-<li><code>npm aduit fix</code>:检查项目依赖中的一些漏洞，并且尝试着修复</li>
-<li><code>npm view xxx versions</code>: 查看npm仓库中xxx包的所有版本信息</li>
-<li><code>npm view xxx version</code>: 查看npm仓库中xxx包的最新版本信息</li>
-</ul>
-</li>
-</ul>
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/06/07/%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%BD%91%E9%A1%B5/" class="archive-article-date">
+  	<time datetime="2020-06-07T15:06:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/06/07/%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%BD%91%E9%A1%B5/">一个小网页</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">第一周</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/29/npm/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/05/30/git%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          git基础
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/05/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MrakDown测试</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#npm的基本操作"><span class="toc-number">1.</span> <span class="toc-text">npm的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是包"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.什么是包?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-一个标准的包，应该包含哪些内容？"><span class="toc-number">1.0.2.</span> <span class="toc-text">2.一个标准的包，应该包含哪些内容？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-如何让一个普通文件夹变成一个包？"><span class="toc-number">1.0.3.</span> <span class="toc-text">3.如何让一个普通文件夹变成一个包？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-npm的常用命令"><span class="toc-number">1.0.4.</span> <span class="toc-text">4.npm的常用命令</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -459,9 +252,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
