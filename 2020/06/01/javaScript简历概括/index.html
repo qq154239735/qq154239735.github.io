@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://kityminder-img.gz.bcebos.com/d109dbbe3da9f1eafe94bd97677b6cee9e9bf44a">
 <meta property="og:image" content="https://kityminder-img.gz.bcebos.com/bdf26df871b54cad4d909afa33af6bc5a532e655">
 <meta property="article:published_time" content="2020-06-01T14:59:36.000Z">
-<meta property="article:modified_time" content="2020-06-03T14:18:34.562Z">
+<meta property="article:modified_time" content="2020-06-08T15:47:21.712Z">
 <meta property="article:author" content="Mr_Diao">
 <meta property="article:tag" content="基础">
 <meta property="article:tag" content="js">
@@ -223,19 +223,22 @@
 <li>八种：String,Number,Boolean,undefined,function,Object   Symbo(es6)  Bigint( es2020 ). 其中<code>null</code> 和 <code>array</code> 类型被归为Object。</li>
 </ul>
 </li>
-<li><p>如何用原型js判断 Array / function / object</p>
-<ul>
+<li><p>判断 Array / function / object数据类型的二种方法：</p>
+<ol>
 <li><p>intranceOf,其逻辑就是通过原型链一级的一级的查找</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log([1,2,3] intranceOf Object )  &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log([1,2,3] intranceOf Object )  &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>最稳</strong>的判断类型的方法: 调用Objcet中的 toString()</p>
+</li>
+</ol>
+<p>通过调用Object构造函数中的toString方法。那么如何调用呢？它的返回值又是什么？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> nul = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.toString()) <span class="comment">// [object Ojbect]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.toString()) <span class="comment">// '1,2,3,5'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//原则上，arr 会使用自己原型 Array中的 toString（）方法。</span></span><br><span class="line"><span class="comment">// 如何让 arr 调用 到Object的toString()??  其实将 this指向 arr就可以</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.portotype.toString.call(arr))  <span class="comment">// [ object Array ]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.portotype.toString.call(nul))  <span class="comment">// [ object null ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 然后通过返回的字符串 再截取一下。</span></span><br><span class="line"><span class="keyword">let</span> result = <span class="built_in">Object</span>.portotype.toString.call(nul)</span><br><span class="line"><span class="built_in">console</span>.log( result.slice(<span class="number">8</span>,<span class="number">-1</span>) )  <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+
+<p><em>优点</em>：即使实例对象 <strong>proto</strong> 发生改变,可以判断其类型。 但是instaceof（） 不可以</p>
 <a id="more"></a>
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2></li>
-</ul>
-</li>
 <li><p>事件轮询机制</p>
 <ul>
-<li><p>首先得明白js是单线程的，所有的js代码都会在主线程执行。</p>
-<p><img src="https://kityminder-img.gz.bcebos.com/70e05b423049e50423f65ca8840520ca814d9732" alt=""></p>
-</li>
+<li>首先得明白js是单线程的，所有的js代码都会在主线程执行。<br><img src="https://kityminder-img.gz.bcebos.com/70e05b423049e50423f65ca8840520ca814d9732" alt=""></li>
 </ul>
 </li>
 <li><p>浏览器中的几个管理异步的模块</p>
@@ -773,10 +776,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逻辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
@@ -786,6 +785,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">第一周</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逻辑</a>
               </li>
             
             <div class="clearfix"></div>

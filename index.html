@@ -203,10 +203,17 @@
 <li>八种：String,Number,Boolean,undefined,function,Object   Symbo(es6)  Bigint( es2020 ). 其中<code>null</code> 和 <code>array</code> 类型被归为Object。</li>
 </ul>
 </li>
-<li><p>如何用原型js判断 Array / function / object</p>
-<ul>
+<li><p>判断 Array / function / object数据类型的二种方法：</p>
+<ol>
 <li><p>intranceOf,其逻辑就是通过原型链一级的一级的查找</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log([1,2,3] intranceOf Object )  &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log([1,2,3] intranceOf Object )  &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>最稳</strong>的判断类型的方法: 调用Objcet中的 toString()</p>
+</li>
+</ol>
+<p>通过调用Object构造函数中的toString方法。那么如何调用呢？它的返回值又是什么？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> nul = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.toString()) <span class="comment">// [object Ojbect]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.toString()) <span class="comment">// '1,2,3,5'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//原则上，arr 会使用自己原型 Array中的 toString（）方法。</span></span><br><span class="line"><span class="comment">// 如何让 arr 调用 到Object的toString()??  其实将 this指向 arr就可以</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.portotype.toString.call(arr))  <span class="comment">// [ object Array ]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.portotype.toString.call(nul))  <span class="comment">// [ object null ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 然后通过返回的字符串 再截取一下。</span></span><br><span class="line"><span class="keyword">let</span> result = <span class="built_in">Object</span>.portotype.toString.call(nul)</span><br><span class="line"><span class="built_in">console</span>.log( result.slice(<span class="number">8</span>,<span class="number">-1</span>) )  <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+
+<p><em>优点</em>：即使实例对象 <strong>proto</strong> 发生改变,可以判断其类型。 但是instaceof（） 不可以</p>
         
           <!-- 这是设置截断文章 more>>   -->
           <a class="article-more-a" style="display:none"  href="/2020/06/01/javaScript%E7%AE%80%E5%8E%86%E6%A6%82%E6%8B%AC/#more">more >></a>
@@ -247,6 +254,102 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/06/01/javaScript%E7%AE%80%E5%8E%86%E6%A6%82%E6%8B%AC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数组去重" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        <!-- 这段不要了，这是设置文章标题的样式 -->
+        <!-- 
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/08/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">数组去重</a>
+    </h1>
+  
+ -->
+        
+        <a href="/2020/06/08/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" class="archive-article-date">
+  	<time datetime="2020-06-08T15:40:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      <!-- 追加这一段 -->
+      <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/06/08/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">数组去重</a>
+    </h1>
+  
+</p></center>
+
+      
+        <h1 id="数组去重的方法"><a href="#数组去重的方法" class="headerlink" title="数组去重的方法"></a>数组去重的方法</h1><blockquote>
+<p>数组去重以最实用、简便为主。以下是我暂时觉得还行的两种方式</p>
+</blockquote>
+<ol>
+<li><p>es6 提供的 set容器，用起来就像是在开法拉利。</p>
+        
+          <!-- 这是设置截断文章 more>>   -->
+          <a class="article-more-a" style="display:none"  href="/2020/06/08/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/08/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">展开全文 >></a>
         </p>
       
 
@@ -1186,10 +1289,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逻辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
@@ -1199,6 +1298,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">第一周</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逻辑</a>
               </li>
             
             <div class="clearfix"></div>

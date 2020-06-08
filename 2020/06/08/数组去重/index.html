@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 扩展 | Diao_blog</title>
+  <title>数组去重 | Diao_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Diao_blog">
-<meta property="og:url" content="http://yoursite.com/tags/%E6%89%A9%E5%B1%95/index.html">
+  <meta name="description" content="数组去重的方法 数组去重以最实用、简便为主。以下是我暂时觉得还行的两种方式   es6 提供的 set容器，用起来就像是在开法拉利。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组去重">
+<meta property="og:url" content="http://yoursite.com/2020/06/08/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/index.html">
 <meta property="og:site_name" content="Diao_blog">
+<meta property="og:description" content="数组去重的方法 数组去重以最实用、简便为主。以下是我暂时觉得还行的两种方式   es6 提供的 set容器，用起来就像是在开法拉利。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-08T15:40:44.000Z">
+<meta property="article:modified_time" content="2020-06-08T15:44:18.934Z">
 <meta property="article:author" content="Mr_Diao">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="数组">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Diao_blog" type="application/atom+xml">
@@ -163,67 +169,211 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<!-- 可以实现文章置顶 -->
+
+
+
+<article id="post-数组去重" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/04/less%E7%9A%84%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-06-04T15:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        <!-- 这段不要了，这是设置文章标题的样式 -->
+        <!-- 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/04/less%E7%9A%84%E5%9F%BA%E7%A1%80/">less的基础</a>
+    <h1 class="article-title" itemprop="name">
+      数组去重
     </h1>
   
+ -->
+        
+        <a href="/2020/06/08/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" class="archive-article-date">
+  	<time datetime="2020-06-08T15:40:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
 
-        <div class="article-info info-on-right">
-          
+      <!-- 追加这一段 -->
+      <center><p>
+  
+    <h1 class="article-title_code_ant" itemprop="name">
+      数组去重
+    </h1>
+  
+</p></center>
+
+      
+        <h1 id="数组去重的方法"><a href="#数组去重的方法" class="headerlink" title="数组去重的方法"></a>数组去重的方法</h1><blockquote>
+<p>数组去重以最实用、简便为主。以下是我暂时觉得还行的两种方式</p>
+</blockquote>
+<ol>
+<li><p>es6 提供的 set容器，用起来就像是在开法拉利。</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="keyword">set</span> = new Set(arr)</span><br><span class="line">console.log(<span class="keyword">set</span>)  //  Set(5) &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;.  返回一个对象，会去掉重复的元素</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 如何通过 Set容器 进行数组的去重呢？？ set容器返回的是一个对象</span></span><br><span class="line">  <span class="comment">// * 方法一： 通过 set 的 forEach()遍历对象，并把元素 push到arr2数组中</span></span><br><span class="line">  <span class="comment">// * 方法二： for of 也可以</span></span><br><span class="line">  <span class="comment">// * 方法三： 三点运算符 也可以实现</span></span><br><span class="line">  <span class="keyword">let</span> arr2=[]</span><br><span class="line"></span><br><span class="line">   <span class="keyword">set</span>.forEach((items)=&gt;&#123;</span><br><span class="line">     arr2.push(items)</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="built_in">console</span>.log(arr2)  <span class="comment">// Array(5) &#123;1, 2, 3, 4, 5&#125;</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> k <span class="keyword">of</span> <span class="keyword">set</span>)&#123;</span><br><span class="line">    arr2.push(k)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(arr2) <span class="comment">// Array(5) &#123;1, 2, 3, 4, 5&#125;</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log([...set]) <span class="comment">// Array(5) &#123;1, 2, 3, 4, 5&#125;  三点运算，</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 封装一个 数组去重的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqArr</span>(<span class="params">target</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [...new <span class="built_in">Set</span>(target)]   <span class="comment">//这太简便了也</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 再简单点</span></span><br><span class="line"><span class="keyword">let</span> uniqArr2 = <span class="function"><span class="params">target</span>=&gt;</span>[...new <span class="built_in">Set</span>(target)]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(uniqArr(arr))</span><br><span class="line"><span class="built_in">console</span>.log(uniqArr2(arr))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用es5中的 indexOf()</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">newArr</span>(<span class="params">array</span>)</span>&#123; </span><br><span class="line">    <span class="comment">//一个新的数组 </span></span><br><span class="line">    <span class="keyword">var</span> arrs = []; </span><br><span class="line">    <span class="comment">//遍历当前数组 </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123; </span><br><span class="line">        <span class="comment">//如果临时数组里没有当前数组的当前值，则把当前值push到新数组里面 </span></span><br><span class="line">        <span class="keyword">if</span> (arrs.indexOf(array[i]) == <span class="number">-1</span>)&#123; </span><br><span class="line">            arrs.push(array[i])</span><br><span class="line">        &#125;; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> arrs; </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">8</span>];</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(newArr(arr))</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">less</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">扩展</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/08/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/06/07/%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%BD%91%E9%A1%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一个小网页</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数组去重的方法"><span class="toc-number">1.</span> <span class="toc-text">数组去重的方法</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -252,9 +402,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
