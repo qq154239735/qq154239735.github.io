@@ -235,15 +235,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
         		</li>
       		
 		</ul>
@@ -315,100 +315,16 @@
 
       
         <blockquote>
-<p>之前的笔记，简略记录了一下Module。当时学es6中Module的时候写的。其实内容是后序补充。 B站是个好东西, 后序还会继续追加Module笔记</p>
+<p>之前的笔记，简略记录了一下Module。当时学es6中Module的时候写的。其他内容是后序补充。 B站是个好东西, 后序还会继续追加Module笔记</p>
 </blockquote>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
-<li>将一个复杂的程序依据一定的规则（规范）封装成几个块（文件），并进行组合在一起</li>
-<li>块的内部数据/实现 是私有的，只是向外暴露一些接口（方法）与外部其它模块通信</li>
-</ul>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
-<li>优点：<ol>
-<li>避免命名冲突（减少命名空间污染）</li>
-<li>更好的分离，按需加载。</li>
-<li>更高复用性，可维护性高</li>
-</ol>
+<li><p>将一个复杂的程序依据一定的规则（规范）封装成几个块（文件），并进行组合在一起</p>
 </li>
-<li>缺点：<ul>
-<li>**： 如果需要多个了Module，请求过多。依赖就会变的异常模糊</li>
-</ul>
-</li>
-</ul>
-<h2 id="四种模块化规范"><a href="#四种模块化规范" class="headerlink" title="四种模块化规范"></a>四种模块化规范</h2><p> <strong>CommonJs &emsp;  AMD  &emsp;  Es6</strong> &emsp;  CMD(了解)</p>
-<h3 id="1-CommonJs"><a href="#1-CommonJs" class="headerlink" title="1.CommonJs"></a>1.CommonJs</h3><h5 id="1-基础语法"><a href="#1-基础语法" class="headerlink" title="1. 基础语法"></a>1. 基础语法</h5><ul>
-<li><p>暴露模块的两种方式：</p>
-<blockquote>
-<p> module.exports = vuale    ——– // value表示 任何类型</p>
-</blockquote>
-<blockquote>
-<p> exports.xxx = value</p>
-</blockquote>
-<p><strong>*暴露的模块到底暴露的是什么？</strong></p>
-<pre><code>暴露的是 exports。 exports是个空对象，然后通过上面两种暴露方式 改变了 exports的值 或 改变 exports的属性值</code></pre> <br/>
-
-
-</li>
-</ul>
-<ul>
-<li>引入模块 require(xxx)<ul>
-<li>第三方模块：XXX为模块名</li>
-<li>自定义模块：XXX为模块文件路径</li>
-</ul>
-</li>
-</ul>
-<h6 id="2-如何实现"><a href="#2-如何实现" class="headerlink" title="2.如何实现"></a>2.如何实现</h6><ul>
-<li>服务器实现<br>node.js<br></li>
-<li>浏览器端实现<br>需要提前打包编译 (Browserify工具)<br></li>
-<li>服务器端实现  与 浏览器端实现 的区别<br>&emsp;服务器端 编印好再发浏览器，不会占用 浏览器主线程<br>&emsp;如果浏览器端直接调用打包的js，会占用主线程。因为这是以同步方式执行的。<br>CommonJs 主要还以服务器端进行编译比较合适</li>
-</ul>
-<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><h5 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h5><ul>
-<li>通过打包编译，浏览器直接调用。但是以异步方式加载。网页打开快，但是有些js功能还没有加载到</li>
-</ul>
-<h3 id="ES6-（重点）"><a href="#ES6-（重点）" class="headerlink" title="ES6 （重点）"></a>ES6 （重点）</h3><h5 id="需要用到的工具"><a href="#需要用到的工具" class="headerlink" title="#.需要用到的工具"></a>#.需要用到的工具</h5><ul>
-<li>bable 将es6语法转为 es5语法。<a href="https://blog.csdn.net/mm19931027/article/details/78741128" target="_blank" rel="noopener">安装方式</a></li>
-<li>Browserify工具，因为也是提前编译。<ul>
-<li>安装browserify<br>全局：<code>npm install browserify -g</code><br>本地：<code>npm install browserify --save</code><br>用法：<code>browserify js/src/app.js -o js/dist/build.js</code><br>意思：将app.js 打包成 build.js 放到 js/dist文件夹中</li>
-</ul>
-</li>
-</ul>
-<h5 id="语法"><a href="#语法" class="headerlink" title="#.语法"></a>#.语法</h5><ul>
-<li><p>两种暴露方式  <code>exponte</code></p>
-<ul>
-<li><p>常规暴露</p>
-<ul>
-<li>分别暴露 <img src="./06_ES6_Babel_Browserify/img/Es6export1.png" alt="分别暴露"> </li>
-<li>群体暴露 <img src="./06_ES6_Babel_Browserify/img/Es6export2.png" alt=""></li>
-</ul>
-</li>
-<li><p>默认暴露: 每个模块中 默认暴露只能出现一次 <strong>关键词</strong>:<code>default</code><br><img src="./06_ES6_Babel_Browserify/img/Es6export3.png" alt=""></p>
-</li>
-</ul>
-</li>
-<li><p>三种接收方式 <code>import</code></p>
-<ul>
-<li>常规暴露的接收方式：module暴露的啥，方法名就是啥。如果没有就是 <code>undefined</code> 。调用的时候直接 <code>方法名()</code></li>
-</ul>
-<blockquote>
-<p>import { 方法名1，方法名2 } from ‘ module路径 ‘</p>
-</blockquote>
-<ul>
-<li>默认暴露接收方式：调用的时候以对象方式调用</li>
-</ul>
-<blockquote>
-<p>import 随便起名 from ‘ module路径 ‘</p>
-</blockquote>
-<ul>
-<li>第三方接收* ： 不需要写路径，写Module名就行。调用的时候以对象方式调用。 如： $( )</li>
-</ul>
-<blockquote>
-<p>import 随便起名 from ‘ moduleName ‘</p>
-</blockquote>
-</li>
-</ul>
-<h5 id="编译流程"><a href="#编译流程" class="headerlink" title="#.编译流程"></a>#.编译流程</h5><pre><code>1. 定义好module，引用好module。 （ src文件夹）
-2. 将src所有文件 bable 到 build文件中。
-3. 再将接收文件.js（main.js） browserify 到 dist文件中。
-4. index.html 引用。</code></pre><h1 id="exprotes-amp-amp-exprote"><a href="#exprotes-amp-amp-exprote" class="headerlink" title="exprotes  &amp;&amp; exprote"></a>exprotes  &amp;&amp; exprote</h1><p>   &emsp; &emsp;  CommonJs 中 使用的是<strong>exprotes</strong> <code>module.exprotes = value</code> / <code>exprotes.xxx = value</code>.<br>   &emsp; &emsp;  CommonJs 中模块的接收 <strong>require（’ /path ‘）</strong><br>   &emsp; &emsp; Es6 中使用的是<strong>exprote</strong>,并且还有了个默认暴露的功能<code>default</code>。<br>   &emsp; &emsp;ES6 中的模块的接收<strong>import</strong></p>
-
+<li><p>块的内部数据/实现 是私有的，只是向外暴露一些接口（方法）与外部其它模块通信</p>
+        
+          <!-- 这是设置截断文章 more>>   -->
+          <a class="article-more-a" style="display:none"  href="/2020/06/11/%E6%A8%A1%E5%9D%97%E5%8C%96/#more">more >></a>
+        
       
 
       
@@ -1003,11 +919,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1101,11 +1017,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1353,11 +1269,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1373,15 +1297,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1390,10 +1310,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">第一周</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
